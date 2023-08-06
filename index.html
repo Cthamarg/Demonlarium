@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <a href="https://www.flaticon.com/free-icons/devil" title="devil icons">Devil icons created by Smashicons - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/devil" title="devil icons">Devil icons created by Smashicons - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/devil" title="devil icons">Devil icons created by Smashicons - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/devil" title="devil icons">Devil icons created by Smashicons - Flaticon</a>
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#a789d4">
+
+    <!--=============== ÍCONES DE CAIXA ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== CSS SWIPER ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title> Demonlarium </title>
+</head>
+
+<body>
+    <!--=============== CABEÇALHO ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Demonlarium</a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item ">
+                        <a href="#home" class="nav__link">
+                            <i class='bx bx-home'></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item ">
+                        <a href="#about" class="nav__link">
+                            <i class='bx bx-user'></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class='bx bx-book'></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#work" class="nav__link">
+                            <i class='bx bx-briefcase-alt-2'></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <i class='bx bx-message-square-dots'></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--=============== botão de mudança de tema ===============-->
+            <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+
+        </nav>
+    </header>
+
+    <!--=============== PRINCIPAL ===============-->
+    <main class="main">
+        <!--=============== HOME ===============-->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__greeting">Bem vindo ao</span>
+                    <h1 class="home__name">Demonlarium</h1>
+                    <h3 class="home__education">Sua porta de entrada para o terror.</h3>
+
+                    <div class="home__button">
+                        <a href="https://discord.gg/TeCFteaWvF" class="button button--ghost">
+                            Entre no nosso Discord
+                        </a>
+
+                        <a href="#about" class="button">Sobre</a>
+                    </div>
+                </div>
+
+                <div class="home__handle">
+                    <img src="assets/img/perfil.jpg" alt="" class="home__img">
+                </div>
+
+                <div class="home__social">
+                    <a href="https://discord.gg/TeCFteaWvF" class="home__social-link">                     
+                        <i class='bx bxl-discord'></i>
+                    </a>
+                    <a href="https://twitter.com/Demonlarium" class="home__social-link">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@demonlarium" class="home__social-link">
+                        <i class='bx bxl-tiktok'></i>
+                    </a>
+                </div>
+
+                <a href="#about" class="home__scroll">
+                    <i class='bx bx-mouse home__scroll-icon'></i>
+                    <span class="home__scroll-name">Para Baixo</span>
+                </a>
+            </div>
+        </section>
+
+        <!--=============== SOBRE ===============-->
+        <section class="about section" id="about">
+            <span class="section__subtitle">Conheça o Criador de</span>
+            <h2 class="section__title">Demonlarium</h2>
+
+            <div class="about__container container grid">
+                <img src="assets/img/about.jpg" alt="" class="about__img">
+
+                <div class="about__data">
+                    <div class="about__info">
+                        <div class="about__box">
+                            <i class='bx bx-award about__icon'></i>
+                            <h3 class="about__title">Tempo Mestrando</h3>
+                            <span class="about__subtitle">10 Anos de RPG</span>
+                        </div>
+                        <div class="about__box">
+                            <i class='bx bx-briefcase-alt about__icon'></i>
+                            <h3 class="about__title">Completo</h3>
+                            <span class="about__subtitle">20+ Temporadas</span>
+                        </div>
+                        <div class="about__box">
+                            <i class='bx bx-support about__icon'></i>
+                            <h3 class="about__title">RPG de Mesa</h3>
+                            <span class="about__subtitle">Discord e Presencial</span>
+                        </div>
+                    </div>
+
+                    <p class="about__description">
+                        Pablo "Cthamarg" é o fundador e um dos criadores do universo de Demonlarium, suas criações vem do fundo do mais puro horror, suas mesas são focadas
+                        para suspense e terror com aventuras que te fazem questionar sobre a realidade.
+                    </p>
+
+                    <a href="#contact" class="button about__button-contact">Participe da minha Mesa</a>
+                </div>
+            </div>
+        </section>
+
+        <!--=============== O QUE ESPERAR ===============-->
+        <section class="skills section" id="skills">
+            <span class="section__subtitle">O que esperar?</span>
+            <h2 class="section__title">Confira o que você pode esperar em uma mesa de RPG da Demonlarium</h2>
+
+            <div class="skills__container container grid">
+                <div class="skills__content">
+                    <h3 class="skills__title">Qual Primordial eu Escolho?</h3>
+
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Brayfog</h3>
+                                    <span class="skills__level">O Original</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Kaira</h3>
+                                    <span class="skills__level">A Emoção</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Gor</h3>
+                                    <span class="skills__level">O Caos</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Mayer</h3>
+                                    <span class="skills__level">O Pecado</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Ellenis</h3>
+                                    <span class="skills__level">A Anti Tese</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Muka'an</h3>
+                                    <span class="skills__level">A Anti Vida</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills__content">
+                    <h3 class="skills__title">Conteudos da Campanha</h3>
+
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Terror</h3>
+                                    <span class="skills__level">Moderado</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Horror</h3>
+                                    <span class="skills__level">Extremo</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Aventura</h3>
+                                    <span class="skills__level">Extremo</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Suspense</h3>
+                                    <span class="skills__level">Moderado</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Enigmas</h3>
+                                    <span class="skills__level">Extremo</span>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <i class='bx bxs-badge-check'></i>
+
+                                <div>
+                                    <h3 class="skills__name">Cosmologia</h3>
+                                    <span class="skills__level">Moderado</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!--=============== O QUE PRECISA PARA JOGAR? ===============-->
+        <section class="services section">
+            <span class="section__subtitle">O Que precisa para Jogar?</span>
+            <h2 class="section__title">Veja os Requerimentos da Mesa</h2>
+
+            <div class="services__container container grid">
+                <div class="services__card">
+                    <div class="serv">
+                        <h3 class="services__title">Microfone <br> De Qualidade</h3>
+
+                        <span class="services__button">
+                            Veja Mais <i class='bx bx-right-arrow services__icon'></i>
+                        </span>
+                    </div>
+
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class='bx bx-x services__modal-close'></i>
+
+                            <h3 class="services__modal-title">Microfone de Qualidade</h3>
+
+                            <p class="services__modal-description">
+                                Um microfone de qualidade é essencial para uma mesa de RPG por diversos motivos. 
+                                Primeiramente, ele garante que a comunicação entre os jogadores seja clara e nítida, evitando ruídos e distorções que possam prejudicar a compreensão das narrativas e interações. 
+                                Além disso, um microfone de boa qualidade captura nuances de voz, entonações e expressões, enriquecendo a interpretação dos personagens e tornando a experiência mais imersiva.
+                            </p>
+
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Clareza: Comunicar-se de forma nítida e compreensível.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Imersão: Enriquecer a interpretação dos personagens.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Profissionalismo: Elevar a qualidade das gravações e transmissões.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Experiência: Aprimorar a interação nas sessões de RPG.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Memórias: Registrar momentos épicos e inesquecíveis.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__card">
+                    <h3 class="services__title">Um <br> Computador</h3>
+
+                    <span class="services__button">
+                        Veja Mais <i class='bx bx-right-arrow services__icon'></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class='bx bx-x services__modal-close'></i>
+
+                            <h3 class="services__modal-title">Um Computador</h3>
+
+                            <p class="services__modal-description">
+                                Ter um computador é fundamental para aprimorar a experiência no mundo do RPG. 
+                                Ele oferece acesso a recursos online, como referências de cenários e regras atualizadas, enriquecendo a narrativa. 
+                                Além disso, facilita a organização de fichas de personagens, anotações e planos de aventuras, mantendo tudo em um só lugar. 
+                                Com softwares específicos, é possível criar mapas detalhados e ambientes visuais para envolver os jogadores.
+                            </p>
+
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Acesso a Recursos Online: Pesquise cenários, regras e inspirações rapidamente.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Organização Simplificada: Gerencie fichas, notas e aventuras em um só lugar.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Elementos Visuais: Crie mapas e ambientes detalhados para a imersão.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Facilita o Jogo Virtual: Conecte jogadores de diferentes locais.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Versatilidade Narrativa: Integre música, imagens e efeitos para cativar jogadores.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__card">
+                    <h3 class="services__title">Sua <br> Criatividade</h3>
+
+                    <span class="services__button">
+                        Veja Mais <i class='bx bx-right-arrow services__icon'></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class='bx bx-x services__modal-close'></i>
+
+                            <h3 class="services__modal-title">Sua Criatividade é tudo que você precisa para começar nesse universo.
+
+                            </h3>
+
+                            <p class="services__modal-description">
+                                Um bom desenvolvimento de historia é algo bem recebido nesse universo, se o seu personagem já foi criado por um dos nossos vídeos no Tiktok ou você está criando algo completamente do zero, o importante é sua criatividade no final do dia!
+                            </p>
+
+                            <ul class="services__modal-list">
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Utilize o seu personagem criado do TikTok em uma de nossas campanhas!
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Crie um personagem completamente do zero, utilizando tudo que foi disponibilizado para a criação!
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Explore centenas de milhares de possibilidades para Backgrounds e Historias para o seu personagem ou crie algo do zero!
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Explore os diversos mundos e historias para achar exatamente o que reflete seu personagem.
+                                    </p>
+                                </li>
+
+                                <li class="services__modal-item">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p class="services__modal-info">
+                                        Principalmente utilize sua criatividade para criar algo incrivel!
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=============== CONHEÇA OUTRAS MESAS ===============-->
+        <section class="work section" id="work">
+            <span class="section__subtitle">Conheça mais sobre as mesas anteriores e atuais do Demonlarium</span>
+            <h2 class="section__title">Campanhas</h2>
+
+            <div class="work__filters">
+                <span class="work__item active-work" data-filter='all'>Tudo</span>
+                <span class=" work__item" data-filter='.web'>Terror</span>
+                <span class=" work__item" data-filter='.movil'>Aventura</span>
+                <span class=" work__item" data-filter='.design'>Suspense</span>
+                <span class=" work__item" data-filter='.design'>Enigma</span>
+                <span class=" work__item" data-filter='.design'>Horror</span>
+            </div>
+
+            <div class="work__container container grid">
+                <div class="work__card mix web">
+                    <img src="assets/img/Capa-Era-de-Sangue---Bloodline.jpg" alt="" class="work__img">
+
+                    <h3 class="work__title">EDC - Bloodline</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+                <div class="work__card mix movil">
+                    <img src="assets/img/coroa_sangrando_vigesimo_terceiro_projeto.png" alt="" class="work__img">
+
+                    <h3 class="work__title">CDS - Projeto 23</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+                <div class="work__card mix design">
+                    <img src="assets/img/goste-ou-vc-n-goste.jpg" alt="" class="work__img">
+
+                    <h3 class="work__title">CDS - Pandemonium</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+                <div class="work__card mix web">
+                    <img src="assets/img/kuduro.png" alt="" class="work__img">
+
+                    <h3 class="work__title">CDS - Reivindicação</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+                <div class="work__card mix movil">
+                    <img src="assets/img/Era-do-Caos.png" alt="" class="work__img">
+
+                    <h3 class="work__title">EDC - Diamante de Sangue</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+                <div class="work__card mix movil">
+                    <img src="assets/img/unknown.png" alt="" class="work__img">
+
+                    <h3 class="work__title">CDS - Mundo 45</h3>
+
+                    <a href="#" class="work__button">
+                        Conheça a Campanha <i class='bx bx-right-arrow work__icon'></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!--=============== RELATOS DOS JOGADORES ===============-->
+        <section class="testimonial section">
+            <span class="section__subtitle">O que meus jogadores falam</span>
+            <h2 class="section__title">Relatos</h2>
+
+            <div class="testimonial__container container swiper">
+                <div class="swiper-wrapper">
+                    <div class="testimonial__card swiper-slide">
+                        <img src="assets/img/testimonial1.png" alt="" class="testimonial__img">
+
+                        <h3 class="testimonial__name">Elena "Kristine"</h3>
+                        <p class="testimonial__description">
+                            Entrar no universo de Demonlarium através de um jogo de RPG foi uma experiência que jamais esquecerei.
+                            Desde o momento em que pisamos na fronteira do Demonlarium, fomos envoltos por uma escuridão que parecia penetrar até mesmo a alma.
+                            Exploramos florestas retorcidas e cavernas sinistras, enfrentando criaturas que pareciam saídas de pesadelos. Cada decisão que tomávamos tinha consequências, e a linha entre o certo e o errado se tornava cada vez mais tênue. Encontramos os Monarcas, seres de poder inimaginável, e tivemos que escolher entre obedecer às suas vontades ou desafiar seu domínio.
+                            Cada sessão de RPG nos mergulhava mais profundamente nesse universo enigmático, explorando suas nuances sombrias e desvendando os mistérios que cercavam os Primordiais e suas esferas de influência. Cada interação com os outros jogadores e cada escolha que fazíamos moldavam nossa própria narrativa dentro desse reino.
+
+                        </p>
+                    </div>
+
+                    <div class="testimonial__card swiper-slide">
+                        <img src="assets/img/testimonial2.png" alt="" class="testimonial__img">
+
+                        <h3 class="testimonial__name">Samuel "Aric"</h3>
+                        <p class="testimonial__description">
+                            Participar de um RPG no universo de Demonlarium foi uma jornada de descoberta e intriga. Meu personagem, um estudioso curioso chamado Aric, estava obcecado em desvendar os segredos ocultos desse reino sombrio. Desde o momento em que nossa jornada começou, fui atraído pelo ambiente sombrio e pela atmosfera carregada de mistério.
+                            Mas o que mais me marcou foi a sensação constante de que a verdade nunca era clara e que mesmo as respostas que encontrávamos levavam a mais perguntas. O RPG no universo de Demonlarium nos ensinou que a busca pelo conhecimento pode ser perigosa, que a linha entre o entendimento e a loucura é frágil, e que os mistérios do reino dos Primordiais nunca deixam de surpreender.
+                        </p>
+                    </div>
+
+                    <div class="testimonial__card swiper-slide">
+                        <img src="assets/img/testimonial3.png" alt="" class="testimonial__img">
+
+                        <h3 class="testimonial__name">Penidorino "Wrath"</h3>
+                        <p class="testimonial__description">
+                            Pensando em Demonlarium como um todo, foi uma primeira vista simultaneamente instigante e intimidadora. Como é do meu interesse acompanhar qualquer tipo de narrativa, independente de duração, não foi difícil cair como uma luva no meu gosto. Fora das sessões, os enigmas são igualmente intrigantes, além de bastante desafiadores e reveladores de elementos interessantíssimos da história, e métodos de resolução bastante divertidos (quando não dolorosos). Confesso que recentemente eu não tenho avançado muito neste aspecto, mas certamente, se começo, não me prendo pouco. O fundo de esforço e de complexidade que as coisas transparecem me dão vontade de entender mais sobre o universo. Das sessões, admito certa confusão da minha parte na hora de entender os cruzamentos de multiversos, mas acho que é mesmo questão de prática e faz parte. A interpretação me estimula bastante ao improviso, provavelmente mais do que qualquer outra mesa que eu já participei, e os resultados me fazem querer experimentar mais. Posso até fazer merda no processo, como destruir um mundo inteiro numa simples ação, mas é esse nível de absurdidade que me atina um pensamento de "até onde isso vai?", que me encoraja a tentar mais, e me deixa mais interessado ainda. Fico ansioso em cada sessão pra saber em que buraco que o grupo vai parar.
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </section>
+
+        <!--=============== CONTATO ===============-->
+        <section class="contact section" id="contact">
+            <sapn class="section__subtitle">Fique Ligado</sapn>
+            <h3 class="section__title">Me contate</h3>
+
+            <div class="contact__container container grid">
+                <div class="contact__content">
+                    <h3 class="contact__title contact__title-info">Fale Comigo</h3>
+
+                    <div class="contact__info">
+                        <div class="contact__card">
+                            <i class='bx bxl-discord contact__card-icon'></i>
+                            <h3 class="contact__card-title">Discord</h3>
+                            <span class="contact__card-data">Entre Já</span>
+
+                            <a href="https://discord.gg/TeCFteaWvF" target="_blank" class="contact__button">
+                                Entrar no Discord <i class='bx bx-right-arrow contact__button-icon'></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card">
+                            <i class='bx bxl-telegram contact__card-icon'></i>
+                            <h3 class="contact__card-title">Nosso Grupo no Telegram</h3>
+                            <span class="contact__card-data">Entre Já</span>
+
+                            <a href="https://t.me/demonlarium" target="_blank"
+                                class="contact__button">
+                                Se junte ao nosso Telegram <i class='bx bx-right-arrow contact__button-icon'></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card">
+                            <i class='bx bxl-twitter contact__card-icon'></i>
+                            <h3 class="contact__card-title">Twitter</h3>
+                            <span class="contact__card-data">Nos Siga</span>
+
+                            <a href="https://twitter.com/Demonlarium" target="_blank" class="contact__button">
+                                Siga Demonlarium no Twitter <i class='bx bx-right-arrow contact__button-icon'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact__content">
+                    <h3 class="contact__title contact__title-form">Me Escreva sua Mensagem</h3>
+
+                    <form action="" class="contact__form">
+                        <div class="contact__form-div">
+                            <label for="" class="contact__form-tag">Nome</label>
+                            <input type="text" placeholder="Escreva seu Nome" class="contact__form-input">
+                        </div>
+
+                        <div class="contact__form-div">
+                            <label for="" class="contact__form-tag">Discord</label>
+                            <input type="text" placeholder="Escreva seu Discord" class="contact__form-input">
+                        </div>
+
+                        <div class="contact__form-div contact__form-area">
+                            <label for="" class="contact__form-tag">Mensagem</label>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Escreva sua Mensagem"
+                                class="contact__form-input "></textarea>
+                        </div>
+
+
+                        <button class="button">
+                            Envie sua Mensagem
+                        </button>
+                    </form>
+
+                </div>
+
+        </section>
+    </main>
+
+    <!--=============== RODAPÉ ===============-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Demonlarium</h1>
+
+            <ul class="footer__list">
+
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Home</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#about" class="footer__link">Sobre</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#skills" class="footer__link">O Que Esperar</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#work" class="footer__link">Mesas Disponiveis</a>
+                </li>
+                <li class="footer__item">
+                    <a href="#contact" class="footer__link">Contato</a>
+                </li>
+            </ul>
+
+            <ul class="footer__social">
+                <li class="footer__social-item">
+                    <a href="https://www.tiktok.com/@demonlarium" class="footer__social-link">
+                        <i class='bx bxl-tiktok footer__social-icon'></i>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://twitter.com/Demonlarium" class="footer__social-link">
+                        <i class='bx bxl-twitter footer__social-icon'></i>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://discord.gg/TeCFteaWvF" class="footer__social-link">
+                        <i class='bx bxl-discord footer__social-icon'></i>
+                    </a>
+                </li>
+            </ul>
+
+            <span class="footer__copy">
+                &#169; 2023 Demonlarium, Todos os Direitos Reservados.
+            </span>
+        </div>
+    </footer>
+
+    <!--=============== SCROLLREVEAL ===============-->
+
+    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MIXITUP FILTER ===============-->
+    <script src="assets/js/mixitup.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
