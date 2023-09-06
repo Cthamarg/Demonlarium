@@ -61,6 +61,28 @@
 }
 
 /*=============== BASE ===============*/
+
+.footer {
+  text-align: center;
+}
+
+.footer__list,
+.footer__social {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__list li,
+.footer__social li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer__copy {
+  display: block;
+  margin-top: 20px;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
