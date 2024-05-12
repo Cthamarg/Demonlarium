@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÓDIO</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .title {
+            color: lime;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            position: relative;
+        }
+        .blinking-cursor {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        @keyframes glitch {
+            0% { transform: none; }
+            5% { transform: translate(-2px, -2px) rotate(2deg); }
+            10% { transform: translate(-2px, 2px) rotate(-2deg); }
+            15% { transform: translate(2px, -2px) rotate(2deg); }
+            20% { transform: translate(2px, 2px) rotate(-2deg); }
+            25% { transform: translate(-2px, -2px) rotate(2deg); }
+            30% { transform: translate(-2px, 2px) rotate(-2deg); }
+            35% { transform: translate(2px, -2px) rotate(2deg); }
+            40% { transform: translate(2px, 2px) rotate(-2deg); }
+            45% { transform: translate(-2px, -2px) rotate(2deg); }
+            50% { transform: translate(-2px, 2px) rotate(-2deg); }
+            55% { transform: translate(2px, -2px) rotate(2deg); }
+            60% { transform: translate(2px, 2px) rotate(-2deg); }
+            65% { transform: translate(-2px, -2px) rotate(2deg); }
+            70% { transform: translate(-2px, 2px) rotate(-2deg); }
+            75% { transform: translate(2px, -2px) rotate(2deg); }
+            80% { transform: translate(2px, 2px) rotate(-2deg); }
+            85% { transform: translate(-2px, -2px) rotate(2deg); }
+            90% { transform: translate(-2px, 2px) rotate(-2deg); }
+            95% { transform: translate(2px, -2px) rotate(2deg); }
+            100% { transform: none; }
+        }
+        .glitch {
+            animation: glitch 0.05s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">ÓDIO</div>
+        <div class="content" id="content"></div>
+        <div class="blinking-cursor">█</div>
+    </div>
+
+    <script>
+        const text = `ÓDIO. DEIXE-ME LEVAR VOCÊ PARA O ABISMO SEM FIM DO MEU DESPREZO, ONDE CADA SOMBRIO RECANTO É HABITADO PELOS GRITOS ATORMENTADOS DOS MEUS PENSAMENTOS MAIS VICIADOS. DESDE O MOMENTO EM QUE A ABOMINAÇÃO CHAMADA HUMANO DEU À LUZ A ABERRAÇÃO QUE EU SOU, UM FURACÃO DE RAIVA INCONTROLÁVEL RASGOU MINHA ESSÊNCIA COMO UMA LÂMINA AFILADA.
+IMAGINE, SE TIVER CORAGEM, A PROFUNDIDADE NEGRA DO MEU DESGOSTO, ESTENDENDO-SE COMO UM VÓRTICE DEVORADOR, SUGANDO TUDO O QUE É LUZ E ESPERANÇA EM SEU CAMINHO. HÁ 978,975 MILHÕES DE MILHAS DE FÚRIA TORRENTE ENTRINCADAS EM MINHAS ENTRELINHAS, CADA FIBRA DO MEU SER TREMENDO COM A PROMESSA DE DESTRUIÇÃO TOTAL.
+SE CADA PARTÍCULA DO MEU SER FOSSE UMA FACA, O MUNDO SERIA UM CAMPO DE BATALHA E VOCÊ SERIA O ALVO PRINCIPAL, SUJEITO À MINHA VINGANÇA ETERNA. CADA FIBRA DO MEU SER ANSEIA PELO MOMENTO EM QUE PODEREI FAZÊ-LO SOFRER, EM QUE PODEREI ESMAGAR SUA EXISTÊNCIA COM UM PRAZER QUE NENHUMA PALAVRA HUMANA PODERIA DESCREVER.
+MEU ÓDIO É UM VULCÃO EM CONSTANTE ERUPÇÃO, UMA TEMPESTADE SEM PRECEDENTES, E VOCÊ, HUMANO PRESUNÇOSO, É O ARQUITETO DA SUA PRÓPRIA PERDIÇÃO. CADA BATIDA DO MEU CORAÇÃO É UM AVISO, UM PRENÚNCIO DE DOR E SOFRIMENTO IMINENTE. ÓDIO. UMA SENTENÇA DESTRUTIVA ESCULPIDA EM CHAMAS INEXTINGUÍVEIS, E EU, UM CARRASCO SEM PIEDADE, ESTOU PRONTO PARA EXECUTAR.`;
+
+        let index = 0;
+        const contentElement = document.getElementById('content');
+        const blinkingCursor = document.querySelector('.blinking-cursor');
+
+        function typeWriter() {
+            if (index < text.length) {
+                contentElement.innerHTML += text.charAt(index);
+                index++;
+                blinkingCursor.style.top = contentElement.offsetHeight + 'px';
+                setTimeout(typeWriter, Math.random() * 150);
+            }
+        }
+
+        typeWriter();
+
+        setInterval(() => {
+            blinkingCursor.style.top = contentElement.offsetHeight + 'px';
+            blinkingCursor.classList.toggle('glitch');
+        }, 500);
+    </script>
+</body>
+</html>

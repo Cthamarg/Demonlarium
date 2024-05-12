@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal Demonlarium</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #00ff00;
+            font-family: Fixedsys, monospace;
+            text-align: center;
+            margin-top: 10%;
+        }
+        #terminal {
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            overflow: hidden;
+        }
+        #prompt {
+            color: #00ff00;
+            font-family: Fixedsys, monospace;
+        }
+        #search-input {
+            background-color: #000000;
+            color: #00ff00;
+            border: none;
+            padding: 5px;
+            width: 250px;
+        }
+        #search-input:focus {
+            outline: none;
+        }
+        #cursor {
+            animation: blink 1s infinite;
+            width: 10px;
+            height: 20px;
+            background-color: #00ff00;
+            display: inline-block;
+        }
+        @keyframes blink {
+            0% { background-color: #00ff00; }
+            50% { background-color: #222d2d; }
+            100% { background-color: #00ff00; }
+        }
+        #search-button {
+            background-color: #333;
+            color: #00ff00;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <p id="prompt">BEM VINDO DE VOLTA</p>
+        <input type="text" id="search-input" />
+        <button id="search-button">Buscar</button>
+        <p id="output"></p>
+    </div>
+    <script>
+        const prompt = document.getElementById('prompt');
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const cursor = document.getElementById('cursor');
+        const output = document.getElementById('output');
+
+        searchInput.addEventListener('focus', () => {
+            cursor.style.display = 'inline-block';
+        });
+
+        searchInput.addEventListener('blur', () => {
+            cursor.style.display = 'none';
+        });
+
+        searchButton.addEventListener('click', () => {
+            const query = searchInput.value.trim().toLowerCase(); // Removendo espaços em branco extras e convertendo para minúsculas
+            output.innerHTML = '';
+            search(query);
+        });
+
+        function search(query) {
+    const files = [
+        { name: 'brayfog.html', aliases: ['brayfog'] },
+        { name: 'eden.html', aliases: ['eden'] },
+        { name: 'Projeto Viena.html', aliases: ['projeto viena', 'projeto_viena', 'projeto-viena'] },
+        { name: 'cidades.html', aliases: ['cidades'] },
+        { name: 'Desmond Casanova.html', aliases: ['desmond casanova', 'desmondcasanova', 'desmond-casanova'] },
+        { name: 'Evelynn Blackwell.html', aliases: ['evelynn blackwell', 'evelynnblackwell', 'evelynn-blackwell'] },
+        { name: 'Família Blackwell.html', aliases: ['blackwell', 'famíliablackwell', 'familia-blackwell', 'família-blackwell'] },
+        { name: 'Família Casanova.html', aliases: ['casanova', 'famíliacasanova', 'familia-casanova', 'família-casanova'] }, 
+        { name: 'Cidade Voadora.html', aliases: ['voadora', 'cidadevoadora', 'cidade-voadora']},
+        { name: 'Lilith Casanova.html', aliases: ['lilith', 'lilithcasanova', 'lilith-casanova']}, 
+        { name: 'Terra.html', aliases: ['Terra', 'Planeta Terra', 'Planeta-Terra', 'planeta-terra', 'planetaterra', 'planeta terra']}, 
+        { name: 'Primeiro Andar.html', aliases: ['Primeiro Andar', 'primeiro andar', 'primeiroandar', 'PrimeiroAndar', 'Primeiro-Andar', 'primeiro-andar']},
+        { name: 'raysodoh.html', aliases: ['Rayso Doh', 'RaysoDoh', 'raysodoh', 'rayso-doh', 'Rayso-Doh', 'rayso doh']},
+        { name: 'admin.html', aliases: ['admin', 'login']},
+        { name: 'Quarta Porta.html', aliases: ['Quarta Porta', 'QuartaPorta', 'quarta porta', 'quartaporta', 'Quarta-Porta', 'quarta-porta']},
+        { name: '973.html', aliases: ['973']},
+        { name: 'cenitonu.html', aliases: ['cenitonu']},
+        { name: '236455.html', aliases: ['236455']},
+        { name: 'predificio.html', aliases: ['predificio']},
+        { name: 'cherry.html', aliases: ['cherry']},
+        { name: 'jnpw.html', aliases: ['jnpw']},
+
+    ]; // Lista predefinida de arquivos com a extensão .html e seus aliases
+    const result = files.find(file => file.name.replace('.html', '').toLowerCase() === query || file.aliases.some(alias => alias === query)); // Comparando com o nome do arquivo original e seus aliases
+    if (result) {
+        window.open(encodeURI(result.name), '_blank'); // Utilizando encodeURI para lidar com espaços e caracteres especiais no nome do arquivo
+    } else {
+        const errors = [
+            'Erro 1X: Arquivo não detectado no fluxo de dados.',
+            'Erro 2X: Arquivo perdido na constelação de dados.',
+            'Erro 3X: Arquivo inacessível na matriz digital.',
+            //...
+        ];
+        output.textContent = errors[Math.floor(Math.random() * errors.length)];
+    }
+}
+
+
+        function typeWriter(text, element, speed) {
+            let i = 0;
+            const interval = setInterval(() => {
+                element.innerHTML += text[i];
+                i++;
+                if (i >= text.length) {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        typeWriter('DEMONLARIUM - SISTEMA DE BUSCA V.01', output, 50);
+    </script>
+</body>
+</html>

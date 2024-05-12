@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login AGENTES SINTECH</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 100px;
+        }
+        input[type="text"], input[type="password"] {
+            background-color: black;
+            color: lime;
+            border: 1px solid lime;
+            padding: 8px;
+            margin: 10px;
+            width: 200px;
+        }
+        input[type="submit"] {
+            background-color: lime;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>SINTECH</h1>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="IDENTIFICAÇÃO" required><br>
+        <input type="password" id="password" placeholder="SENHA" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        document.getElementById("login-form").onsubmit = function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Aqui você configura os logins permitidos e as páginas de destino
+            var logins = {
+                "priestofbaal": {
+                    "senha": "TsOjbyBDb25maWF2w6ls",
+                    "pagina": "Priest of Baal.html"
+                },
+                "astragaar": {
+                    "senha": "SG9tZW0gTW9ydG8=",
+                    "pagina": "Astragaar.html"
+                },
+                "genesis068602": {
+                    "senha": "QWx4eQ==",
+                    "pagina": "Genesis.html"
+                },
+                "priestofklinn": {
+                    "senha": "S2xpbm4=",
+                    "pagina": "Priest of Klinn.html"
+                },
+                "nmrrmc": {
+                    "senha": "TmljayBNYXJ0aW4=",
+                    "pagina": "nmrrmc.html"
+                },
+                "nm978": {
+                    "senha": "TWF0dGVvIE1vbnRyZWFs",
+                    "pagina": "nm978.html"
+                },
+                "agentepqr": {
+                    "senha": "cXVlcnRhdGlzYW5kaW1v",
+                    "pagina": "Agente PQR.html"
+                },
+                "agenteuvw": {
+                    "senha": "dXZ3dGhlcmVhZHN1Y2VlcmlkZQ==",
+                    "pagina": "Agente UVW.html"
+                },
+                "agentemno": {
+                    "senha": "bWVvdGlhbGllcm1vdG8=",
+                    "pagina": "Agente MNO.html"
+                },
+                "agentijkl": {
+                    "senha": "aWprd2Vyd29ya2Vy",
+                    "pagina": "Agente IJKL.html"
+                },
+                // Adicione mais logins aqui, se necessário
+            };
+
+            // Verifica se o login é válido
+            if (logins.hasOwnProperty(username) && logins[username].senha === password) {
+                // Redireciona para a página de destino específica
+                window.location.href = logins[username].pagina;
+            } else {
+                alert("IDENTIFICAÇÃO NÃO LOCALIZADA, TENTE NOVAMENTE.");
+            }
+        };
+    </script>
+</body>
+</html>
