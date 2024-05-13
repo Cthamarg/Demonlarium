@@ -107,6 +107,7 @@
         { name: 'predificio.html', aliases: ['predificio']},
         { name: 'cherry.html', aliases: ['cherry']},
         { name: 'jnpw.html', aliases: ['jnpw']},
+        { name: 'Nexus 9.html', aliases: ['NEXUS-9', 'nexus-9', 'Nexus 9', 'nexus 9', 'nexus9', 'NEXUS9']},
 
     ]; // Lista predefinida de arquivos com a extensão .html e seus aliases
     const result = files.find(file => file.name.replace('.html', '').toLowerCase() === query || file.aliases.some(alias => alias === query)); // Comparando com o nome do arquivo original e seus aliases
@@ -117,6 +118,21 @@
             'Erro 1X: Arquivo não detectado no fluxo de dados.',
             'Erro 2X: Arquivo perdido na constelação de dados.',
             'Erro 3X: Arquivo inacessível na matriz digital.',
+            'Erro 4X: Dados corrompidos durante a transmissão',
+            'Erro 5X: Unidade de armazenamento não reconhecida.',
+            'Erro 6X: Falha na indexação do arquivo.',
+            'Erro 7X: Colisão de dados durante a recuperação.',
+            'Erro 8X: Caminho de arquivo inválido.',
+            'Erro 9X: Falha na autenticação do arquivo.',
+            'Erro 10X: Excesso de dados na memória.',
+            'Erro 11X: Tamanho do arquivo excede o limite.',
+            'Erro 12X: Arquivo não encontrado no sistema de arquivos.',
+            'Erro 13X: Falha na verificação de integridade do arquivo.',
+            'Erro 14X: Operação de leitura/escrita interrompida.',
+            'Erro 15X: Incompatibilidade de formato de arquivo.',
+            'Erro 16X: Permissões insuficientes para acessar o arquivo.',
+            'Erro 17X: Problemas de sincronização de dados.',
+
             //...
         ];
         output.textContent = errors[Math.floor(Math.random() * errors.length)];
