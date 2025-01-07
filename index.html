@@ -1,90 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Terminal Demonlarium</title>
-    <style>
-        body {
-            background-color: #000000;
-            color: #00ff00;
-            font-family: Fixedsys, monospace;
-            text-align: center;
-            margin-top: 10%;
-        }
-        #terminal {
-            margin: 0 auto;
-            width: 500px;
-            height: 300px;
-            border: 1px solid #00ff00;
-            padding: 10px;
-            overflow: hidden;
-        }
-        #prompt {
-            color: #00ff00;
-            font-family: Fixedsys, monospace;
-        }
-        #search-input {
-            background-color: #000000;
-            color: #00ff00;
-            border: none;
-            padding: 5px;
-            width: 250px;
-        }
-        #search-input:focus {
-            outline: none;
-        }
-        #cursor {
-            animation: blink 1s infinite;
-            width: 10px;
-            height: 20px;
-            background-color: #00ff00;
-            display: inline-block;
-        }
-        @keyframes blink {
-            0% { background-color: #00ff00; }
-            50% { background-color: #222d2d; }
-            100% { background-color: #00ff00; }
-        }
-        #search-button {
-            background-color: #333;
-            color: #00ff00;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-        }
-        #output {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINTECH</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'VT323', 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #terminal {
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      border: 2px solid #0f0;
+      padding: 20px;
+      box-shadow: 0 0 20px #0f0;
+      text-align: center;
+    }
+    #logo {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    #prompt {
+      color: #0f0;
+      margin-bottom: 10px;
+    }
+    #input-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #search-input {
+      background-color: transparent;
+      color: #0f0;
+      border: none;
+      font-family: inherit;
+      font-size: 1em;
+      width: calc(100% - 80px);
+    }
+    #search-input:focus {
+      outline: none;
+    }
+    #search-button {
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-family: inherit;
+      margin-left: 10px;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+    @media (max-width: 600px) {
+      #terminal {
+        width: 95%;
+        padding: 15px;
+        font-size: smaller; /* Ajusta o tamanho da fonte em telas menores */
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="terminal">
-        <p id="prompt">BEM VINDO DE VOLTA</p>
-        <input type="text" id="search-input" />
-        <button id="search-button">Buscar</button>
-        <p id="output"></p>
+  <div id="terminal">
+    <!-- Logo ASCII -->
+    <div id="logo">
+<pre>
+   ██████  ██▓ ███▄    █ ▄▄▄█████▓▓█████  ▄████▄   ██░ ██ 
+▒██    ▒ ▓██▒ ██ ▀█   █ ▓  ██▒ ▓▒▓█   ▀ ▒██▀ ▀█  ▓██░ ██▒
+░ ▓██▄   ▒██▒▓██  ▀█ ██▒▒ ▓██░ ▒░▒███   ▒▓█    ▄ ▒██▀▀██░
+  ▒   ██▒░██░▓██▒  ▐▌██▒░ ▓██▓ ░ ▒▓█  ▄ ▒▓▓▄ ▄██▒░▓█ ░██ 
+▒██████▒▒░██░▒██░   ▓██░  ▒██▒ ░ ░▒████▒▒ ▓███▀ ░░▓█▒░██▓
+▒ ▒▓▒ ▒ ░░▓  ░ ▒░   ▒ ▒   ▒ ░░   ░░ ▒░ ░░ ░▒ ▒  ░ ▒ ░░▒░▒
+░ ░▒  ░ ░ ▒ ░░ ░░   ░ ▒░    ░     ░ ░  ░  ░  ▒    ▒ ░▒░ ░
+░  ░  ░   ▒ ░   ░   ░ ░   ░         ░   ░         ░  ░░ ░
+      ░   ░           ░             ░  ░░ ░       ░  ░  ░
+                                        ░                    
+</pre>
     </div>
-    <script>
-        const prompt = document.getElementById('prompt');
-        const searchInput = document.getElementById('search-input');
-        const searchButton = document.getElementById('search-button');
-        const cursor = document.getElementById('cursor');
-        const output = document.getElementById('output');
 
-        searchInput.addEventListener('focus', () => {
-            cursor.style.display = 'inline-block';
-        });
+    <p id="prompt">SINTECH v1.0 > Sistema Operacional Ativo</p>
 
-        searchInput.addEventListener('blur', () => {
-            cursor.style.display = 'none';
-        });
+    <div id="input-line">
+        <input type="text" id="search-input" autocomplete="off" spellcheck="false" placeholder="Digite sua busca...">
+        <button id="search-button">BUSCAR</button>
+    </div>
 
-        searchButton.addEventListener('click', () => {
-            const query = searchInput.value.trim().toLowerCase(); // Removendo espaços em branco extras e convertendo para minúsculas
-            output.innerHTML = '';
-            search(query);
-        });
+    <pre id="output"></pre>
+  </div>
 
-        function search(query) {
+<script>
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const output = document.getElementById('output');
+
+searchButton.addEventListener('click', performSearch);
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
+
+function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    output.textContent = ''; // Limpa o output anterior
+    search(query);
+}
+
+function search(query) {
     const files = [
         { name: 'brayfog.html', aliases: ['brayfog'] },
         { name: 'eden.html', aliases: ['eden'] },
@@ -92,66 +124,51 @@
         { name: 'cidades.html', aliases: ['cidades'] },
         { name: 'Desmond Casanova.html', aliases: ['desmond casanova', 'desmondcasanova', 'desmond-casanova'] },
         { name: 'Evelynn Blackwell.html', aliases: ['evelynn blackwell', 'evelynnblackwell', 'evelynn-blackwell'] },
-        { name: 'Família Blackwell.html', aliases: ['blackwell', 'famíliablackwell', 'familia-blackwell', 'família-blackwell'] },
-        { name: 'Família Casanova.html', aliases: ['casanova', 'famíliacasanova', 'familia-casanova', 'família-casanova'] }, 
-        { name: 'Cidade Voadora.html', aliases: ['voadora', 'cidadevoadora', 'cidade-voadora']},
-        { name: 'Lilith Casanova.html', aliases: ['lilith', 'lilithcasanova', 'lilith-casanova']}, 
-        { name: 'Terra.html', aliases: ['Terra', 'Planeta Terra', 'Planeta-Terra', 'planeta-terra', 'planetaterra', 'planeta terra']}, 
-        { name: 'Primeiro Andar.html', aliases: ['Primeiro Andar', 'primeiro andar', 'primeiroandar', 'PrimeiroAndar', 'Primeiro-Andar', 'primeiro-andar']},
-        { name: 'raysodoh.html', aliases: ['Rayso Doh', 'RaysoDoh', 'raysodoh', 'rayso-doh', 'Rayso-Doh', 'rayso doh']},
-        { name: 'admin.html', aliases: ['admin', 'login']},
-        { name: 'Quarta Porta.html', aliases: ['Quarta Porta', 'QuartaPorta', 'quarta porta', 'quartaporta', 'Quarta-Porta', 'quarta-porta']},
-        { name: '973.html', aliases: ['973']},
-        { name: 'cenitonu.html', aliases: ['cenitonu']},
-        { name: '236455.html', aliases: ['236455']},
-        { name: 'predificio.html', aliases: ['predificio']},
-        { name: 'cherry.html', aliases: ['cherry']},
-        { name: 'jnpw.html', aliases: ['jnpw']},
-        { name: 'Nexus 9.html', aliases: ['NEXUS-9', 'nexus-9', 'Nexus 9', 'nexus 9', 'nexus9', 'NEXUS9']},
+        { name: 'Família Blackwell.html', aliases: ['blackwell', 'famíliablackwell'] },
+        { name: 'Cidade Voadora.html', aliases:['cidadevoadora','voadora']},
+        { name: 'cenitonu.html', aliases: ['cenitonu','Cenitonu']},
+        { name: 'jnpw.html', aliases: ['jnpw'] },
+        { name: 'ASTRA.html', aliases: ['ASTRA', 'astra', 'A.S.T.R.A'] },
+        { name: 'Sophia Drakos.html', aliases: ['Sophia Drakos', 'sophia', 'sophia drakos', 'drakos'] },
+        { name: 'discord.html', aliases: ['discord', 'Discord']},
+        { name: 'Andares Restritos.html', aliases: ['Andares Restritos', 'Abismo', 'abismo']},
+        
+        // Adicione mais arquivos conforme necessário
+    ];
 
-    ]; // Lista predefinida de arquivos com a extensão .html e seus aliases
-    const result = files.find(file => file.name.replace('.html', '').toLowerCase() === query || file.aliases.some(alias => alias === query)); // Comparando com o nome do arquivo original e seus aliases
+    const result = files.find(file =>
+        file.name.replace('.html', '').toLowerCase() === query ||
+        file.aliases.some(alias => alias === query)
+    );
+
     if (result) {
-        window.open(encodeURI(result.name), '_blank'); // Utilizando encodeURI para lidar com espaços e caracteres especiais no nome do arquivo
+        typeWriter(`Arquivo encontrado: Abrindo...`, output, () => {
+            setTimeout(() => window.open(encodeURI(result.name), '_blank'), 1000);
+        });
     } else {
-        const errors = [
-            'Erro 1X: Arquivo não detectado no fluxo de dados.',
-            'Erro 2X: Arquivo perdido na constelação de dados.',
-            'Erro 3X: Arquivo inacessível na matriz digital.',
-            'Erro 4X: Dados corrompidos durante a transmissão',
-            'Erro 5X: Unidade de armazenamento não reconhecida.',
-            'Erro 6X: Falha na indexação do arquivo.',
-            'Erro 7X: Colisão de dados durante a recuperação.',
-            'Erro 8X: Caminho de arquivo inválido.',
-            'Erro 9X: Falha na autenticação do arquivo.',
-            'Erro 10X: Excesso de dados na memória.',
-            'Erro 11X: Tamanho do arquivo excede o limite.',
-            'Erro 12X: Arquivo não encontrado no sistema de arquivos.',
-            'Erro 13X: Falha na verificação de integridade do arquivo.',
-            'Erro 14X: Operação de leitura/escrita interrompida.',
-            'Erro 15X: Incompatibilidade de formato de arquivo.',
-            'Erro 16X: Permissões insuficientes para acessar o arquivo.',
-            'Erro 17X: Problemas de sincronização de dados.',
-
-            //...
-        ];
-        output.textContent = errors[Math.floor(Math.random() * errors.length)];
+        typeWriter(`Erro! Arquivo "${query}" não encontrado.\n`, output);
     }
 }
 
+function typeWriter(text, element, callback) {
+    let i = 0;
 
-        function typeWriter(text, element, speed) {
-            let i = 0;
-            const interval = setInterval(() => {
-                element.innerHTML += text[i];
-                i++;
-                if (i >= text.length) {
-                    clearInterval(interval);
-                }
-            }, speed);
+    const interval = setInterval(() => {
+        element.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length) {
+            clearInterval(interval);
+            if (callback) callback();
         }
+    }, 50);
+}
 
-        typeWriter('DEMONLARIUM - SISTEMA DE BUSCA V.01', output, 50);
-    </script>
+// Mensagem inicial
+typeWriter(
+`SINTECH - Sistema de Busca Ativado
+Bem-vindo ao sistema operacional.
+Digite sua consulta acima para começar.`,
+output);
+</script>
 </body>
 </html>

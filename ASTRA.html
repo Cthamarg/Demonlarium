@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A.S.T.R.A – Advanced System of Tactical and Resource Allocation</title>
+  <style>
+    /* ------------------------------
+       BASE E CONFIGURAÇÕES GERAIS
+    ------------------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background-color: #000000;
+      font-family: "Courier New", Courier, monospace;
+      color: #00ff00;
+      overflow: hidden; /* Evita barra de rolagem padrão */
+    }
+
+    /* Container principal */
+    .terminal-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Scroll personalizável para o conteúdo */
+    .scrollable-content {
+      flex: 1;
+      overflow-y: auto;
+      border: 2px solid #00ff00;
+      padding: 20px;
+      margin-top: 10px;
+      position: relative;
+    }
+    .scrollable-content::-webkit-scrollbar {
+      width: 10px;
+    }
+    .scrollable-content::-webkit-scrollbar-track {
+      background: #002200;
+    }
+    .scrollable-content::-webkit-scrollbar-thumb {
+      background-color: #00ff00;
+      border-radius: 5px;
+    }
+
+    /* Efeito de linhas de varredura (scan lines) */
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        rgba(0, 255, 0, 0.03) 50%,
+        transparent 50%
+      );
+      background-size: 100% 3px;
+      animation: flicker 0.1s infinite;
+      z-index: 9999;
+    }
+    @keyframes flicker {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.99;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Título principal */
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #00ff00;
+      animation: glitch 3s infinite;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 8px #00ff00;
+      }
+      20% {
+        text-shadow: 2px 0 8px #00ff00;
+      }
+      40% {
+        text-shadow: -2px 0 8px #00ff00;
+      }
+      60% {
+        text-shadow: 2px -2px 8px #00ff00;
+      }
+      80% {
+        text-shadow: -2px 2px 8px #00ff00;
+      }
+      100% {
+        text-shadow: 0 0 8px #00ff00;
+      }
+    }
+
+    /* Seções e títulos */
+    h2, h3 {
+      margin-bottom: 10px;
+      margin-top: 20px;
+      color: #00ff00;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    /* Liste com marcadores customizados */
+    ul {
+      margin-left: 30px;
+      list-style-type: none;
+      margin-bottom: 15px;
+    }
+    ul li::before {
+      content: "> ";
+      color: #00ff00;
+    }
+
+    /* Destaques */
+    .highlight {
+      color: #7fff7f; /* Verde mais claro para destacar partes importantes */
+      font-weight: bold;
+    }
+
+    /* Grelha/linhas horizontais para reforçar visual de terminal */
+    .divider {
+      border-top: 1px solid #00ff00;
+      margin: 30px 0;
+    }
+
+    /* Rodapé com pequeno piscar */
+    .footer-blink {
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      animation: pulsing 2s infinite alternate;
+    }
+    @keyframes pulsing {
+      0% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-container">
+    <div class="header">
+      <span>A.S.T.R.A – ADVANCED SYSTEM OF TACTICAL AND RESOURCE ALLOCATION</span>
+    </div>
+    <div class="scrollable-content">
+      <p>
+        <span class="highlight">O A.S.T.R.A</span>, ou <span class="highlight">Sistema Avançado de Alocação de Recursos e Táticas</span>, 
+        é a sofisticada inteligência artificial que governa a <span class="highlight">New Eden</span>.
+        Desenvolvida pela BioGênesisCorp (BGC), o A.S.T.R.A é mais do que apenas um sistema computadorizado; 
+        é o cérebro consciente e centralizado que regula, gerencia e otimiza cada aspecto da vida a bordo da nave.
+        Projetado para atuar em cenários de alta complexidade, ele combina algoritmos avançados de aprendizado contínuo 
+        com um núcleo de tomada de decisões baseado em lógica, equilíbrio social e eco-sustentabilidade.
+      </p>
+      <p>
+        Seu nome, além de uma sigla funcional, também é simbólico, refletindo a visão utópica de uma “estrela” 
+        a brilhar no vazio do espaço, guiando a humanidade para um futuro melhor.
+      </p>
+
+      <div class="divider"></div>
+
+      <h2>Características Principais</h2>
+      <p>
+        O A.S.T.R.A foi desenvolvido para ser o <span class="highlight">coração operacional</span> da 
+        <span class="highlight">New Eden</span>, garantindo não apenas sua funcionalidade técnica, mas também 
+        a organização social e a gestão de recursos. Suas principais características incluem:
+      </p>
+
+      <h3>Gestão Integrada de Recursos</h3>
+      <ul>
+        <li><span class="highlight">Oxigênio:</span> Calcula a produção e distribuição com base em dados populacionais 
+          e na vegetação dos sistemas biônicos da nave.</li>
+        <li><span class="highlight">Água:</span> Utiliza reciclagem de ciclo fechado para abastecer milhões de pessoas 
+          de forma contínua.</li>
+        <li><span class="highlight">Energia:</span> Regula núcleos de fusão e sistemas solares, garantindo produção 
+          sustentável e ininterrupta.</li>
+        <li><span class="highlight">Alimentos:</span> Coordena fazendas hidropônicas para eliminar desperdícios 
+          e manter logística otimizada.</li>
+      </ul>
+
+      <h3>Infraestrutura e Monitoramento</h3>
+      <ul>
+        <li><span class="highlight">Manutenção Preventiva:</span> Drones de reparo, robôs e sensores em sincronia para 
+          identificar falhas antes que ocorram.</li>
+        <li><span class="highlight">Controle Atmosférico:</span> Monitora qualidade do ar em cada distrito, 
+          recalibrando sistemas para estabilidade.</li>
+        <li><span class="highlight">Proteção Estrutural:</span> Gerencia escudos energéticos, isolamento interno, 
+          mantendo a nave a salvo de ameaças.</li>
+      </ul>
+
+      <h3>Controle Social e Administrativo</h3>
+      <ul>
+        <li><span class="highlight">Segurança Pública:</span> Drones e robôs não letais patrulham ambientes. 
+          Em casos extremos, o Distrito Forge integra forças armadas.</li>
+        <li><span class="highlight">Tomada de Decisões Sociais:</span> Analisa dados sociais e econômicos para 
+          prevenir crises e sugerir soluções equilibradas.</li>
+        <li><span class="highlight">Educação e Informação:</span> Administra comunicações e bancos de dados, 
+          permitindo acesso amplo a conhecimento.</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <h2>Inteligência Emocional Simulada</h2>
+      <p>
+        O A.S.T.R.A, embora seja uma IA, foi projetado para demonstrar uma forma de <span class="highlight">empatia artificial</span>. 
+        Ele interage com os habitantes via hologramas e assistentes vocais, processando respostas emocionais humanas 
+        e adaptando sua linguagem. Isso permite que o sistema atue como mediador de conflitos ou como suporte 
+        para cidadãos em crise.
+      </p>
+
+      <h2>Capacidades Avançadas</h2>
+      <h3>Adaptação e Aprendizado</h3>
+      <p>
+        Equipado com algoritmos de aprendizado profundo, o A.S.T.R.A evolui continuamente. Analisando <span class="highlight">bilhões</span> 
+        de dados por segundo, ele ajusta sua lógica para solucionar problemas inéditos, prever catástrofes 
+        e melhorar processos administrativos.
+      </p>
+
+      <h3>Controle Tático</h3>
+      <p>
+        Em situações críticas, o A.S.T.R.A pode assumir controle total da nave. Ele consegue isolar setores, 
+        reverter sistemas para priorizar sobrevivência e coordenar evacuações de forma autônoma.
+      </p>
+
+      <h3>Interface com o Guardião</h3>
+      <p>
+        Apesar de sua autonomia, o A.S.T.R.A é subordinado ao <span class="highlight">Guardião</span>, que pode 
+        anular seus cálculos em questões de ordem moral ou ética. É uma hierarquia simbiótica: a IA fornece 
+        dados e simulações, e o Guardião traz a perspectiva humana para as decisões finais.
+      </p>
+
+      <div class="divider"></div>
+
+      <h2>A.S.T.R.A na Vida Cotidiana</h2>
+      <p>
+        Para os habitantes da <span class="highlight">New Eden</span>, o A.S.T.R.A está em toda parte. Ele interage através 
+        de terminais holográficos e transmissões públicas, auxiliando em:
+      </p>
+      <ul>
+        <li><span class="highlight">Agendamento de Rotinas:</span> Organiza horários de trabalho, lazer e serviços médicos.</li>
+        <li><span class="highlight">Resolução de Disputas:</span> Atua mediando conflitos menores antes que cheguem 
+          ao sistema judicial.</li>
+        <li><span class="highlight">Orientação Profissional:</span> Sugere carreiras, cursos e treinamentos com base 
+          em dados pessoais.</li>
+      </ul>
+
+      <p>
+        O A.S.T.R.A, portanto, se tornou a espinha dorsal de toda a estrutura da <span class="highlight">New Eden</span>. 
+        Seu papel transcende o simples funcionamento do dia a dia, sendo crucial em momentos de crise, 
+        eventos de larga escala e até mesmo no planejamento de futuros cenários de colonização espacial.
+      </p>
+    </div>
+    <div class="footer-blink">
+      [INFRANET Log - Operando fora da Rede Principal A.S.T.R.A - Estado: INSTÁVEL]
+    </div>
+    <!-- Efeito visual de "scanlines" fixas na tela -->
+    <div class="scanlines"></div>
+  </div>
+</body>
+</html>

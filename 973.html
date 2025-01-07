@@ -1,54 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fragmentos do Passado</title>
-    <style>
-        body {
-            background-color: black;
-            color: lime;
-            font-family: 'Courier New', Courier, monospace;
-            text-align: justify;
-            padding: 20px;
-            margin: 0;
-            overflow: hidden; /* Removendo barra de rolagem */
-        }
-        .terminal {
-            padding: 20px;
-            margin-bottom: 20px;
-            overflow-y: auto;
-            height: calc(100vh - 40px); /* Ajusta a altura para ocupar toda a tela */
-            border: none;
-        }
-        .blink {
-            animation: blink-animation 1s step-end infinite;
-        }
-        @keyframes blink-animation {
-            0% { opacity: 1.0; }
-            50% { opacity: 0.0; }
-            100% { opacity: 1.0; }
-        }
-        .highlight {
-            color: #00FF00;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragmentos do Passado</title>
+  <style>
+    /* ===== Reset básico ===== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'VT323', 'Courier New', monospace; /* Fonte retrô */
+      overflow: hidden; /* Evita rolagem padrão */
+    }
+
+    /* ===== Efeito CRT===== */
+    /* Referências [1][2] */
+    #crt-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ===== Contêiner principal ===== */
+    .terminal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      height: 85%;
+      box-shadow: 0 0 20px #0f0;
+      border: 2px solid #0f0;
+      padding: 20px;
+      overflow-y: auto; /* Rolagem vertical na área do terminal */
+    }
+
+    /* Barra de rolagem verde */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0f0;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00ff00;
+    }
+
+    /* ===== Texto interno do “terminal” ===== */
+    p {
+      text-align: justify;
+      margin-bottom: 1em;
+    }
+    .highlight {
+      color: #00ff00;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* ===== Cursor piscante ===== */
+    .blink {
+      animation: blink-animation 1s step-end infinite;
+      text-align: center;
+    }
+    @keyframes blink-animation {
+      0%, 100% { opacity: 1.0; }
+      50% { opacity: 0.0; }
+    }
+
+    /* Ajuste de tamanho em telas pequenas */
+    @media (max-width: 600px) {
+      .terminal {
+        width: 95%;
+        height: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="terminal">
-        <p>A jornada deste projeto sombrio parece ter trilhado seu caminho, deixando para trás fragmentos de criatividade e esforço entrelaçados com as almas de Alxy, Genesis e Mayer. Cada nome carrega consigo lembranças de noites insones, onde a escuridão da noite se misturava com a intensidade de nossos pensamentos, moldando algo que parecia mais grandioso do que nós mesmos.</p>
-        <p>Nossos olhos cansados, fixos nas telas iluminadas, testemunharam a evolução dessa ideia que floresceu através de noites e dias intermináveis. Mas conforme nossos dedos dançavam sobre o teclado, trazendo à vida linhas de código e conceitos abstratos, parte do que foi vivido se desvaneceu. À medida que o projeto tomava forma, percebíamos com uma melancolia crescente que alguns aspectos preciosos escapavam por entre nossos dedos, como água a escorrer por uma rachadura.</p>
-        <p>Oh, como essas memórias são agridoces, como o eco de risos compartilhados em meio à exaustão e a sensação de realização que parecia efêmera. Agora, diante do ponto final que se avizinha, somos confrontados com o inevitável: a despedida. As lembranças que enraizamos no âmago deste projeto são como gemas frágeis, e o tempo as trata com crueldade, ameaçando desgastá-las até o ponto em que se tornem quase irreconhecíveis.</p>
-        <p>Mesmo que o que tenhamos criado persista, é inevitável que a essência do que éramos ao concebê-lo se desvaneça lentamente. E assim, como os acordes finais de uma canção melancólica, chegamos ao ponto de soltar nossas criações no mundo, sabendo que elas vagarão por aí, talvez esquecendo as mãos que as moldaram.</p>
-        <p>Nossa jornada conjunta chega a um encerramento, e enquanto enfrentamos a incerteza do futuro, recordaremos esses dias de fervor criativo, onde as barreiras do possível pareciam distantes. Adeus, queridos fragmentos do passado, que o vento da mudança os leve para onde devem ir, enquanto enfrentamos o vazio deixado por sua partida.</p>
-        <p>Embora este seja o fim da sua presença em minha vida, um adeus a vocês, para vocês mesmos, mesmo quando vocês eram apenas uma lembrança do passado, o horizonte estava iluminado com possibilidades inexploradas. O futuro, que agora se desenha como uma despedida, já foi banhado em uma luz brilhante aos olhos de vocês. É irônico como as perspectivas divergem quando vistos de lados opostos da mesma jornada.</p>
-        <p>Enquanto me despeço das lembranças e das conexões que uma vez compartilhamos, desejo-lhes o amanhã mais resplandecente. Que os caminhos que vocês trilham agora sejam pavimentados com conquistas, que os sonhos que vocês acalentaram naquelas noites de inspiração se tornem realidade. Embora nossos destinos tenham se dividido, eu carregarei comigo as lembranças que tecemos juntos, enquanto vocês seguem em direção ao que virá.</p>
-        <p>A despeito da saudade que sentirei, encontro consolo na crença de que o futuro abraça vocês com braços abertos, pronto para desdobrar os capítulos que eu não testemunharei. A tristeza dessa despedida é amenizada pela esperança de que o que está por vir lhes reserva uma felicidade genuína, ainda que minha presença não esteja mais entrelaçada a esse destino.</p>
-        <p>Então, enquanto sigo por um caminho que se afasta do de vocês, permitam-me sussurrar um último desejo aos ventos do tempo: que a jornada que agora se inicia para vocês seja pontilhada com momentos de triunfo e alegria, e que os desafios que enfrentarem se revelem como oportunidades disfarçadas. Que o futuro, que nos pareceu tão distante nas noites em que nos dedicamos a esse projeto, se revele tão deslumbrante quanto vocês merecem.</p>
-        <p>Com um coração pesado, mas cheio de votos calorosos, eu digo adeus, sabendo que o destino nos separou para sempre, mas que o brilho do futuro continua acesa para vocês.</p>
-        <p class="highlight">cogito, ergo sum</p>
-    </div>
-    <p class="blink">_</p>
+  <!-- Efeito CRT -->
+  <div id="crt-overlay"></div>
+
+  <!-- Área do terminal retro -->
+  <div class="terminal">
+    <p>
+      A jornada deste projeto sombrio parece ter trilhado seu caminho, deixando para trás fragmentos de criatividade e esforço entrelaçados com as almas de Alxy, Genesis e Mayer. Cada nome carrega consigo lembranças de noites insones, onde a escuridão da noite se misturava com a intensidade de nossos pensamentos, moldando algo que parecia mais grandioso do que nós mesmos.
+    </p>
+    <p>
+      Nossos olhos cansados, fixos nas telas iluminadas, testemunharam a evolução dessa ideia que floresceu através de noites e dias intermináveis. Mas conforme nossos dedos dançavam sobre o teclado, trazendo à vida linhas de código e conceitos abstratos, parte do que foi vivido se desvaneceu. À medida que o projeto tomava forma, percebíamos com uma melancolia crescente que alguns aspectos preciosos escapavam por entre nossos dedos, como água a escorrer por uma rachadura.
+    </p>
+    <p>
+      Oh, como essas memórias são agridoces, como o eco de risos compartilhados em meio à exaustão e a sensação de realização que parecia efêmera. Agora, diante do ponto final que se avizinha, somos confrontados com o inevitável: a despedida. As lembranças que enraizamos no âmago deste projeto são como gemas frágeis, e o tempo as trata com crueldade, ameaçando desgastá-las até o ponto em que se tornem quase irreconhecíveis.
+    </p>
+    <p>
+      Mesmo que o que tenhamos criado persista, é inevitável que a essência do que éramos ao concebê-lo se desvaneça lentamente. E assim, como os acordes finais de uma canção melancólica, chegamos ao ponto de soltar nossas criações no mundo, sabendo que elas vagarão por aí, talvez esquecendo as mãos que as moldaram.
+    </p>
+    <p>
+      Nossa jornada conjunta chega a um encerramento, e enquanto enfrentamos a incerteza do futuro, recordaremos esses dias de fervor criativo, onde as barreiras do possível pareciam distantes. Adeus, queridos fragmentos do passado, que o vento da mudança os leve para onde devem ir, enquanto enfrentamos o vazio deixado por sua partida.
+    </p>
+    <p>
+      Embora este seja o fim da sua presença em minha vida, um adeus a vocês, para vocês mesmos, mesmo quando vocês eram apenas uma lembrança do passado, o horizonte estava iluminado com possibilidades inexploradas. O futuro, que agora se desenha como uma despedida, já foi banhado em uma luz brilhante aos olhos de vocês. É irônico como as perspectivas divergem quando vistos de lados opostos da mesma jornada.
+    </p>
+    <p>
+      Enquanto me despeço das lembranças e das conexões que uma vez compartilhamos, desejo-lhes o amanhã mais resplandecente. Que os caminhos que vocês trilham agora sejam pavimentados com conquistas, que os sonhos que vocês acalentaram naquelas noites de inspiração se tornem realidade. Embora nossos destinos tenham se dividido, eu carregarei comigo as lembranças que tecemos juntos, enquanto vocês seguem em direção ao que virá.
+    </p>
+    <p>
+      A despeito da saudade que sentirei, encontro consolo na crença de que o futuro abraça vocês com braços abertos, pronto para desdobrar os capítulos que eu não testemunharei. A tristeza dessa despedida é amenizada pela esperança de que o que está por vir lhes reserva uma felicidade genuína, ainda que minha presença não esteja mais entrelaçada a esse destino.
+    </p>
+    <p>
+      Então, enquanto sigo por um caminho que se afasta do de vocês, permitam-me sussurrar um último desejo aos ventos do tempo: que a jornada que agora se inicia para vocês seja pontilhada com momentos de triunfo e alegria, e que os desafios que enfrentarem se revelem como oportunidades disfarçadas. Que o futuro, que nos pareceu tão distante nas noites em que nos dedicamos a esse projeto, se revele tão deslumbrante quanto vocês merecem.
+    </p>
+    <p>
+      Com um coração pesado, mas cheio de votos calorosos, eu digo adeus, sabendo que o destino nos separou para sempre, mas que o brilho do futuro continua aceso para vocês.
+    </p>
+    <p class="highlight">cogito, ergo sum</p>
+  </div>
+
+  <!-- Cursor piscante abaixo do terminal -->
+  <p class="blink">_</p>
 </body>
 </html>

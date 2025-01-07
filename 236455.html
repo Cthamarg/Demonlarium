@@ -1,53 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>236455</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #00FF00;
-            font-family: monospace;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .terminal {
-            background-color: #000;
-            border: 2px solid #00FF00;
-            padding: 20px;
-            max-width: 800px;
-            width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .command {
-            color: #00FF00;
-        }
-
-        .output {
-            color: #00FF00;
-            font-weight: bold;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>236455</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    #glitch-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.05), rgba(255, 0, 0, 0.05), rgba(0, 0, 255, 0.05));
+      background-size: 100% 2px, 3px 100%;
+      animation: glitch 1.2s infinite;
+    }
+    @keyframes glitch {
+      0%, 100% {
+        transform: none;
+        filter: none;
+      }
+      10% {
+        transform: skewX(1deg) translate(-1px, 1px);
+        filter: hue-rotate(20deg);
+      }
+      20% {
+        transform: skewX(-2deg) translate(2px, -1px);
+        filter: hue-rotate(60deg);
+      }
+      30% {
+        transform: skewX(1deg) translate(-2px, 2px);
+        filter: hue-rotate(110deg);
+      }
+      40% {
+        transform: none;
+        filter: none;
+      }
+      50% {
+        transform: skewX(-1deg) translate(-3px, 1px);
+        filter: hue-rotate(180deg);
+      }
+      60% {
+        transform: skewX(1deg) translateY(-2px);
+        filter: hue-rotate(240deg);
+      }
+      70% {
+        transform: none;
+        filter: none;
+      }
+      80% {
+        transform: skewX(-1deg) translate(2px, -1px);
+        filter: hue-rotate(320deg);
+      }
+      90% {
+        transform: skewX(2deg) translate(-2px, -2px);
+        filter: hue-rotate(60deg);
+      }
+    }
+    .anomaly {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      border: 2px solid #0f0;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #000;
+      box-shadow: 0 0 10px #0f0;
+      animation: flicker 3s infinite;
+      overflow: hidden;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      5% { opacity: 0.7; }
+      10% { opacity: 0.5; }
+      15% { opacity: 0.9; }
+      20% { opacity: 0.4; }
+      25%, 30% { opacity: 1; }
+      35% { opacity: 0.6; }
+      40% { opacity: 0.8; }
+      45% { opacity: 0.5; }
+      50% { opacity: 1; }
+      60% { opacity: 0.7; }
+      75% { opacity: 0.5; }
+      85% { opacity: 0.9; }
+      90% { opacity: 0.3; }
+    }
+    .anomaly-title {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+    .anomaly-text {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-weight: bold;
+      color: #0f0;
+      line-height: 1.5;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="terminal">
-        <div class="command">236455</div>
-        <div class="output">
-            UXVhbmRvIHNvbmRlaSBhIGFudGlnYSBhbGRyYXZhIGRlIGZlcnJvLCBmaXF1ZWkgY29tIHVtIHBvdWNvIGRlIG1lZG8uIEFsZ3VtIHRlbW9yIGhhdmlhIHNlIGFjdW11bGFkbyBlbSBtaW0sIHRhbHZleiBwb3IgY2F1c2EgZGEgZXN0cmFuaGV6YSBkYSBtaW5oYSBoZXJhbsOnYSwgYSBmYWx0YSBkZSBtb3ZpbWVudG8gZSBvIHNpbMOqbmNpbyBlc3RyYW5obyBkYSBtYW5ow6MgbmFxdWVsYSB2ZWxoYSBjaWRhZGUgZGUgY29zdHVtZXMgYml6YXJyb3MuIEUgcXVhbmRvIG1pbmhhIGJhdGlkYSBmb2kgcmVzcG9uZGlkYSwgZmlxdWVpIGNvbXBsZXRhbWVudGUgYW1lZHJvbnRhZG8sIHBvcnF1ZSBuw6NvIGhhdmlhIG91dmlkbyBuZW5odW0gcGFzc28gYW50ZXMgZGEgcG9ydGEgYWJyaXIgY29tIHVtIHJhbmdpZG8uIE1hcyBuw6NvIGZpcXVlaSBjb20gbWVkbyBwb3IgbXVpdG8gdGVtcG8sIHBvaXMgbyBob21lbSBpZG9zbyBkZSBwaWphbWEgZSBjaGluZWxvcyBuYSBlbnRyYWRhIHRpbmhhIHVtIHJvc3RvIGJyYW5kbyBxdWUgbWUgdHJhbnHDvGlsaXpvdTsgZSBhcGVzYXIgZGUgdGVyIGZlaXRvIHNpbmFpcyBkZSBxdWUgZXJhIHN1cmRvLCBlc2NyZXZldSB1bWEgY3VyaW9zYSBlIGFudGlnYSBzYXVkYcOnw6NvIGNvbSBvIGVzdGlsZXRlIGUgYSB0YWJ1bGV0YSBkZSBjZXJhIHF1ZSBjYXJyZWdhdmEu
-        </div>
+  <div id="glitch-overlay"></div>
+  <div class="anomaly">
+    <h1 class="anomaly-title">236455</h1>
+    <div class="anomaly-text">
+UXVhbmRvIHNvbmRlaSBhIGFudGlnYSBhbGRyYXZhIGRlIGZlcnJvLCBmaXF1ZWkgY29tIHVtIHBvdWNvIGRlIG1lZG8uIEFsZ3VtIHRlbW9yIGhhdmlhIHNlIGFjdW11bGFkbyBlbSBtaW0sIHRhbHZleiBwb3IgY2F1c2EgZGEgZXN0cmFuaGV6YSBkYSBtaW5oYSBoZXJhbsOnYSwgYSBmYWx0YSBkZSBtb3ZpbWVudG8gZSBvIHNpbMOqbmNpbyBlc3RyYW5obyBkYSBtYW5ow6MgbmFxdWVsYSB2ZWxoYSBjaWRhZGUgZGUgY29zdHVtZXMgYml6YXJyb3MuIEUgcXVhbmRvIG1pbmhhIGJhdGlkYSBmb2kgcmVzcG9uZGlkYSwgZmlxdWVpIGNvbXBsZXRhbWVudGUgYW1lZHJvbnRhZG8sIHBvcnF1ZSBuw6NvIGhhdmlhIG91dmlkbyBuZW5odW0gcGFzc28gYW50ZXMgZGEgcG9ydGEgYWJyaXIgY29tIHVtIHJhbmdpZG8uIE1hcyBuw6NvIGZpcXVlaSBjb20gbWVkbyBwb3IgbXVpdG8gdGVtcG8sIHBvaXMgbyBob21lbSBpZG9zbyBkZSBwaWphbWEgZSBjaGluZWxvcyBuYSBlbnRyYWRhIHRpbmhhIHVtIHJvc3RvIGJyYW5kbyBxdWUgbWUgdHJhbnHDvGlsaXpvdTsgZSBhcGVzYXIgZGUgdGVyIGZlaXRvIHNpbmFpcyBkZSBxdWUgZXJhIHN1cmRvLCBlc2NyZXZldSB1bWEgY3VyaW9zYSBlIGFudGlnYSBzYXVkYcOnw6NvIGNvbSBvIGVzdGlsZXRlIGUgYSB0YWJ1bGV0YSBkZSBjZXJhIHF1ZSBjYXJyZWdhdmEu
     </div>
+  </div>
 </body>
-
 </html>

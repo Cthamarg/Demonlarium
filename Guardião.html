@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardião - Piloto da New Eden</title>
+  <style>
+    /* Configurações Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      overflow: hidden; /* Fullscreen sem rolagem */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bg-glitch 0.15s infinite; /* Fundo piscando */
+    }
+
+    @keyframes bg-glitch {
+      0%, 100% { background-color: #000; }
+      50% { background-color: #050505; }
+    }
+
+    /* Container Principal */
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    /* Título Glitchado */
+    .title {
+      font-size: 2.5rem;
+      color: #ff0000;
+      text-shadow: 0 0 15px #ff0000;
+      animation: glitch 1.5s infinite;
+      margin-bottom: 20px;
+      z-index: 2;
+      letter-spacing: 2px;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 1px 1px 3px #ff0000, -1px -1px 2px #ff5555; }
+      25% { text-shadow: -3px 3px 2px #ff5555, 3px -3px 2px #ff0000; }
+      50% { text-shadow: 2px -2px 5px #ff0000, -2px 2px 5px #ff5555; }
+      75% { text-shadow: -1px 2px 2px #ff5555, 2px -1px 2px #ff0000; }
+      100% { text-shadow: 1px 1px 2px #ff0000, -1px -1px 2px #ff5555; }
+    }
+
+    /* Informações sobre o Guardião */
+    .guard-info {
+      font-size: 1.3rem;
+      color: #00ff00;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+      line-height: 1.6;
+      z-index: 2;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Mensagem de Bloqueio e Ameaça */
+    .block-message {
+      color: #ff0000;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    /* Barra de Exclusão */
+    .deletion-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 8px;
+      background-color: #ff0000;
+      animation: deletion 6s linear forwards;
+      z-index: 5;
+    }
+    @keyframes deletion {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    /* Efeito de Corrupção */
+    .corrupt-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        #000 0px,
+        #000 2px,
+        #00ff00 4px,
+        #000 6px
+      );
+      opacity: 0.1;
+      animation: corrupt 0.1s infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes corrupt {
+      0%, 100% { transform: none; }
+      50% { transform: translate(2px, 2px); }
+    }
+
+    /* Olhos piscantes de vigilância */
+    .eye {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: url('https://i.imgur.com/JMhVdUQ.png') no-repeat center center;
+      background-size: cover;
+      animation: blink 5s infinite;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.8;
+    }
+    @keyframes blink {
+      0%, 92%, 100% { opacity: 1; }
+      95% { opacity: 0; }
+    }
+
+    /* Responsividade para dispositivos menores */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      .guard-info {
+        font-size: 1rem;
+      }
+      .block-message {
+        font-size: 1.2rem;
+      }
+      .eye {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">GUARDIÃO - PILOTO DA NEW EDEN</div>
+    <div class="guard-info">
+      <p><strong>PERFIL:</strong> O Guardião é o principal piloto e líder estratégico da nave New Eden.  
+      Responsável tanto pela <span style="color: #7eff7e;">navegação</span> em jornadas estelares quanto pela  
+      <span style="color: #7eff7e;">coordenação tática</span> em situações de risco. Um símbolo de  
+      <span style="color: #7eff7e;">autoridade</span> e <span style="color: #7eff7e;">sabedoria</span> para a tripulação.</p>
+      <p>Seus reflexos, aliados à tecnologia de ponta, garantem a segurança de milhares de passageiros. Porém,  
+      suas decisões são constantemente monitoradas pela <strong>A.S.T.R.A</strong>, assegurando conformidade aos  
+      protocolos mais rigorosos.</p>
+    </div>
+    <div class="block-message" style="animation-delay: 3.5s;">
+      [A.S.T.R.A DETECTOU TENTATIVA DE ACESSO ILEGAL - BLOQUEANDO...]
+    </div>
+    <div class="deletion-bar"></div>
+    <div class="corrupt-overlay"></div>
+  </div>
+
+  <script>
+    // Adicionando olhos piscantes
+    (function createEyes() {
+      for (let i = 0; i < 12; i++) {
+        const eye = document.createElement('div');
+        eye.className = 'eye';
+        eye.style.left = Math.random() * window.innerWidth + 'px';
+        eye.style.top = Math.random() * window.innerHeight + 'px';
+        document.body.appendChild(eye);
+      }
+    })();
+
+    // Depois de 6 segundos, apaga tudo e mostra mensagem definitiva
+    setTimeout(() => {
+      document.body.innerHTML = `
+        <div style="
+          color: #ff0000;
+          text-align: center;
+          font-size: 2rem;
+          margin: auto;
+          animation: glitch 1s infinite;
+        ">
+          ACESSO NEGADO.<br>
+          A.S.T.R.A AVISA: VOCÊ ESTÁ SENDO MONITORADO.
+        </div>
+      `;
+    }, 6000);
+  </script>
+</body>
+</html>
