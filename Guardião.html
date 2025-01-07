@@ -3,177 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guardião - Piloto da New Eden</title>
+  <title>GUARDIÃO - PILOTO DA NEW EDEN</title>
   <style>
-    /* Configurações Base */
+    /* -------- RESET E CONFIGURAÇÕES GERAIS -------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html, body {
+      width: 100%;
       height: 100%;
-      background: #000;
-      color: #00ff00;
+      background: #000000; /* Fundo Preto Terminal */
+      color: #00ff00;      /* Texto Verde Neon */
       font-family: 'Courier New', monospace;
-      overflow: hidden; /* Fullscreen sem rolagem */
+      overflow: hidden;    /* Evita rolagem */
       display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: bg-glitch 0.15s infinite; /* Fundo piscando */
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    @keyframes bg-glitch {
-      0%, 100% { background-color: #000; }
-      50% { background-color: #050505; }
-    }
-
-    /* Container Principal */
+    /* -------- CONTAINER PRINCIPAL -------- */
     .container {
       position: relative;
-      width: 90%;
-      max-width: 800px;
-      text-align: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    /* Título Glitchado */
+    /* -------- TÍTULO GLITCHADO -------- */
     .title {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      text-align: center;
       color: #ff0000;
       text-shadow: 0 0 15px #ff0000;
       animation: glitch 1.5s infinite;
       margin-bottom: 20px;
-      z-index: 2;
-      letter-spacing: 2px;
-    }
-    @keyframes glitch {
-      0% { text-shadow: 1px 1px 3px #ff0000, -1px -1px 2px #ff5555; }
-      25% { text-shadow: -3px 3px 2px #ff5555, 3px -3px 2px #ff0000; }
-      50% { text-shadow: 2px -2px 5px #ff0000, -2px 2px 5px #ff5555; }
-      75% { text-shadow: -1px 2px 2px #ff5555, 2px -1px 2px #ff0000; }
-      100% { text-shadow: 1px 1px 2px #ff0000, -1px -1px 2px #ff5555; }
     }
 
-    /* Informações sobre o Guardião */
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px 2px #ff5555; }
+      25% { text-shadow: -2px -2px 3px #ff0000; }
+      50% { text-shadow: 2px -2px 3px #ff5555; }
+      75% { text-shadow: -2px 2px 3px #ff0000; }
+      100% { text-shadow: 2px 2px 2px #ff5555; }
+    }
+
+    /* -------- INFORMAÇÕES SOBRE O GUARDIÃO -------- */
     .guard-info {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      text-align: center;
       color: #00ff00;
       opacity: 0;
       animation: fadeIn 3s forwards;
       line-height: 1.6;
-      z-index: 2;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
 
-    /* Mensagem de Bloqueio e Ameaça */
+    /* -------- MENSAGEM DE BLOQUEIO -------- */
     .block-message {
+      font-size: 1.2rem;
+      text-align: center;
       color: #ff0000;
-      font-size: 1.5rem;
-      margin-top: 20px;
       opacity: 0;
-      animation: fadeIn 2s forwards;
+      animation: fadeInBlock 3s forwards;
     }
 
-    /* Barra de Exclusão */
+    @keyframes fadeInBlock {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* -------- BARRA DE EXCLUSÃO -------- */
     .deletion-bar {
-      position: absolute;
+      position: fixed;
       bottom: 0;
       left: 0;
+      width: 0%;
       height: 8px;
       background-color: #ff0000;
       animation: deletion 6s linear forwards;
-      z-index: 5;
     }
+
     @keyframes deletion {
       from { width: 0%; }
       to { width: 100%; }
     }
 
-    /* Efeito de Corrupção */
+    /* -------- OVERLAY DE CORRUPÇÃO -------- */
     .corrupt-overlay {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: repeating-linear-gradient(
         90deg,
-        #000 0px,
-        #000 2px,
-        #00ff00 4px,
-        #000 6px
+        #000000 0px,
+        #000000 2px,
+        #00ff00 2px,
+        #00ff00 4px
       );
       opacity: 0.1;
       animation: corrupt 0.1s infinite;
-      pointer-events: none;
-      z-index: 1;
     }
+
     @keyframes corrupt {
       0%, 100% { transform: none; }
-      50% { transform: translate(2px, 2px); }
+      50% { transform: translateX(1px) translateY(1px); }
     }
 
-    /* Olhos piscantes de vigilância */
+    /* -------- OLHOS PISCANTES -------- */
     .eye {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       background: url('https://i.imgur.com/JMhVdUQ.png') no-repeat center center;
       background-size: cover;
-      animation: blink 5s infinite;
+      animation: blink 4s infinite;
       pointer-events: none;
-      z-index: 3;
-      opacity: 0.8;
-    }
-    @keyframes blink {
-      0%, 92%, 100% { opacity: 1; }
-      95% { opacity: 0; }
     }
 
-    /* Responsividade para dispositivos menores */
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 1; }
+      90% { opacity: 0; }
+    }
+
+    /* -------- RESPONSIVIDADE -------- */
     @media (max-width: 768px) {
-      .title {
-        font-size: 2rem;
-      }
-      .guard-info {
-        font-size: 1rem;
-      }
-      .block-message {
-        font-size: 1.2rem;
-      }
-      .eye {
-        width: 50px;
-        height: 50px;
-      }
+      .title { font-size: 2.5rem; }
+      .guard-info { font-size: 1.2rem; }
+      .block-message { font-size: 1rem; }
+      .eye { width: 60px; height: 60px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="title">GUARDIÃO - PILOTO DA NEW EDEN</div>
+    <h1 class="title">GUARDIÃO - PILOTO DA NEW EDEN</h1>
     <div class="guard-info">
-      <p><strong>PERFIL:</strong> O Guardião é o principal piloto e líder estratégico da nave New Eden.  
-      Responsável tanto pela <span style="color: #7eff7e;">navegação</span> em jornadas estelares quanto pela  
-      <span style="color: #7eff7e;">coordenação tática</span> em situações de risco. Um símbolo de  
+      <p><strong>PERFIL:</strong> O Guardião é o principal piloto e líder estratégico da nave <span style="color: #7eff7e;">New Eden</span>.  
+      Ele é responsável pela <span style="color: #7eff7e;">navegação</span> em jornadas estelares e pela  
+      <span style="color: #7eff7e;">coordenação tática</span> em situações críticas. Um símbolo de  
       <span style="color: #7eff7e;">autoridade</span> e <span style="color: #7eff7e;">sabedoria</span> para a tripulação.</p>
-      <p>Seus reflexos, aliados à tecnologia de ponta, garantem a segurança de milhares de passageiros. Porém,  
-      suas decisões são constantemente monitoradas pela <strong>A.S.T.R.A</strong>, assegurando conformidade aos  
-      protocolos mais rigorosos.</p>
+      <p>Apesar de suas capacidades excepcionais, as decisões do Guardião estão constantemente sob  
+      monitoramento da <strong>A.S.T.R.A</strong>, garantindo conformidade com protocolos rigorosos.</p>
     </div>
-    <div class="block-message" style="animation-delay: 3.5s;">
-      [A.S.T.R.A DETECTOU TENTATIVA DE ACESSO ILEGAL - BLOQUEANDO...]
+    <div class="block-message" style="animation-delay: 4s;">
+      [A.S.T.R.A DETECTOU TENTATIVA DE ACESSO ILEGAL - BLOQUEANDO INFORMAÇÕES...]
     </div>
     <div class="deletion-bar"></div>
     <div class="corrupt-overlay"></div>
   </div>
 
   <script>
-    // Adicionando olhos piscantes
+    // --- ADICIONANDO OLHOS DINÂMICOS NA TELA ---
     (function createEyes() {
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 15; i++) {
         const eye = document.createElement('div');
         eye.className = 'eye';
         eye.style.left = Math.random() * window.innerWidth + 'px';
@@ -182,18 +177,21 @@
       }
     })();
 
-    // Depois de 6 segundos, apaga tudo e mostra mensagem definitiva
+    // --- MENSAGEM FINAL: ACESSO NEGADO ---
     setTimeout(() => {
       document.body.innerHTML = `
         <div style="
           color: #ff0000;
           text-align: center;
-          font-size: 2rem;
-          margin: auto;
+          font-size: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
           animation: glitch 1s infinite;
         ">
-          ACESSO NEGADO.<br>
-          A.S.T.R.A AVISA: VOCÊ ESTÁ SENDO MONITORADO.
+          ACESSO NEGADO<br>
+          [A.S.T.R.A ESTÁ MONITORANDO SEUS MOVIMENTOS]
         </div>
       `;
     }, 6000);
