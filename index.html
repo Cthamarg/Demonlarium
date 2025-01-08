@@ -15,6 +15,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     #terminal {
       width: 90%;
@@ -24,6 +25,8 @@
       padding: 20px;
       box-shadow: 0 0 20px #0f0;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     #logo {
       text-align: center;
@@ -67,13 +70,39 @@
       #terminal {
         width: 95%;
         padding: 15px;
-        font-size: smaller; /* Ajusta o tamanho da fonte em telas menores */
+        font-size: smaller;
       }
+    }
+    /* Scanline effect */
+    .scanline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,.2) 70%, rgba(0,0,0,.6));
+      background-size: 100% 0.3rem;
+      animation: scanlines 1s steps(60) infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @keyframes scanlines {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(0.3rem); }
+    }
+    /* Flickering effect */
+    .flicker {
+      animation: flicker 0.90s infinite;
+    }
+    @keyframes flicker {
+      0% { opacity: 0.95; }
+      50% { opacity: 1; }
+      100% { opacity: 0.95; }
     }
   </style>
 </head>
 <body>
-  <div id="terminal">
+  <div id="terminal" class="flicker">
     <!-- Logo ASCII -->
     <div id="logo">
 <pre>
@@ -90,7 +119,7 @@
 </pre>
     </div>
 
-    <p id="prompt">SINTECH v1.0 > Sistema Operacional Ativo</p>
+    <p id="prompt">SINTECH v0.1 > Banco de Dados Ativo > Acesso Parcial</p>
 
     <div id="input-line">
         <input type="text" id="search-input" autocomplete="off" spellcheck="false" placeholder="Digite sua busca...">
@@ -99,6 +128,7 @@
 
     <pre id="output"></pre>
   </div>
+  <div class="scanline"></div>
 
 <script>
 const searchInput = document.getElementById('search-input');
