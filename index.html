@@ -361,26 +361,50 @@
 
     // Exemplo básico de busca
     function search(query) {
-      const folderPath = './resultados/';
-      fetch(`${folderPath}index.json`)
-        .then(response => response.json())
-        .then(files => {
-          const result = files.find(file =>
-            file.name.replace('.html', '').toLowerCase() === query ||
-            (Array.isArray(file.aliases) && file.aliases.some(alias => alias.toLowerCase() === query))
-          );
-          if (result) {
-            typeWriter(`Arquivo "${query}" encontrado: abrindo...`, output, () => {
-              setTimeout(() => window.open(encodeURI(folderPath + result.name), '_blank'), 1000);
-            });
-          } else {
-            typeWriter(`Erro! Arquivo "${query}" não foi encontrado.\n`, output);
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao carregar index.json:', error);
-          typeWriter(`Erro ao carregar os dados de busca. Tente novamente mais tarde.`, output);
+  const folderPathSite1 = './resultados/'; // Caminho para a pasta do Site 1
+  const folderPathSite2 = './resultados_site2/'; // Caminho para a pasta do Site 2
+
+  // Carregar resultados do Site 1
+  const promiseSite1 = fetch(`${folderPathSite1}resultados_1.json`)
+    .then(response => response.json())
+    .catch(error => {
+      console.error('Erro ao carregar resultados_1.json:', error);
+      return []; // Retorna um array vazio em caso de erro
+    });
+
+  // Carregar resultados do Site 2
+  const promiseSite2 = fetch(`${folderPathSite2}resultados_site2.json`)
+    .then(response => response.json())
+    .catch(error => {
+      console.error('Erro ao carregar resultados_site2.json:', error);
+      return []; // Retorna um array vazio em caso de erro
+    });
+
+  // Combinar os resultados dos dois sites
+  Promise.all([promiseSite1, promiseSite2])
+    .then(([filesSite1, filesSite2]) => {
+      const combinedResults = [...filesSite1, ...filesSite2]; // Combina os arrays
+
+      // Realizar a busca no array combinado
+      const result = combinedResults.find(file =>
+        file.name.replace('.html', '').toLowerCase() === query.toLowerCase() ||
+        (Array.isArray(file.aliases) && file.aliases.some(alias => alias.toLowerCase() === query.toLowerCase()))
+      );
+
+      if (result) {
+        // Define a pasta correta com base na origem do resultado
+        const folderPath = filesSite1.includes(result) ? folderPathSite1 : folderPathSite2;
+        typeWriter(`Arquivo "${query}" encontrado: abrindo...`, output, () => {
+          setTimeout(() => window.open(encodeURI(folderPath + result.name), '_blank'), 1000);
         });
+      } else {
+        typeWriter(`Erro! Arquivo "${query}" não foi encontrado.\n`, output);
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao combinar resultados:', error);
+      typeWriter(`Erro ao carregar os dados de busca. Tente novamente mais tarde.`, output);
+    });
     }
 
     function typeWriter(text, element, callback) {
